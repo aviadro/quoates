@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- Upper Image Section -->
+    <div class="photo-container">
+        <img src="https://cdn.pixabay.com/photo/2020/02/24/18/09/background-4877017_1280.jpg" alt="Upper Page Photo">
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">MyApp</a>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+
+
+    <!-- Quote Container -->
+    <div class="quote-container">
+        <blockquote>"The only limit to our realization of tomorrow is our doubts of today."</blockquote>
+        <p class="author">- Franklin D. Roosevelt</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector(".nav-links").classList.toggle("active");
+        }
+    </script>
+
+</body>
+
+</html>
