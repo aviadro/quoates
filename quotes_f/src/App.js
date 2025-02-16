@@ -32,10 +32,10 @@ function App() {
           <p>Your inspiring tagline goes here.</p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <button onClick={() => changeQuote("success")}>Motivation Quote</button>
-        <button onClick={()=>changeQuote("funny")}>Humor Quote</button>
-        <button onClick={()=>changeQuote("movie")}>Movies Quote</button>
-        <button onClick={()=>changeQuote("philosophy")}>Phisophy Quote</button>
+        <button className="refresh-button" onClick={() => changeQuote("success")}>Motivation Quote</button>
+        <button className="refresh-button" onClick={()=>changeQuote("funny")}>Humor Quote</button>
+        <button className="refresh-button" onClick={()=>changeQuote("movie")}>Movies Quote</button>
+        <button className="refresh-button" onClick={()=>changeQuote("philosophy")}>Phisophy Quote</button>
         </div>
 
         {/* Quote Container */}

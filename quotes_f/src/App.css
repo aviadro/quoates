@@ -168,3 +168,31 @@
   font-weight: bold;
   color: #555;
 }
+
+/* button */
+/* Rounded Rectangle Button */
+.refresh-button {
+  background-color: orange; /* Yellow background */
+  color: black; /* Black text */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px; /* Adjust padding for size */
+  border: none;
+  border-radius: 20px; /* Rounded edges */
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none; /* Remove underline if used for links */
+}
+
+/* Hover Effect */
+.refresh-button:hover {
+  background-color: #ff8c00; /* Darker shade of orange */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Click Effect */
+.refresh-button:active {
+  transform: scale(0.95); /* Slight shrink effect */
+}
