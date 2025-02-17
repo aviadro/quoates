@@ -1,12 +1,20 @@
 import './App.css';
 import { useState } from 'react'
+import axios from 'axios'
 
 function App() {
   const [quote, setQuote] = useState("The only limit to our realization of tomorrow is our doubts of today.")
   const [author, setAuthor] = useState('Franklin D. Roosevelt')
 
   function changeQuote(category){
-    
+    axios
+      .get(
+        `http://127.0.0.1:8000/api/quotes/${category}/`
+      )
+      .then((response) => {
+        setQuote(response.data.text)
+        setAuthor(response.data.author)
+      })
   }
 
   function toggleMenu() {
@@ -32,9 +40,9 @@ function App() {
           <p>Your inspiring tagline goes here.</p>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <button className="refresh-button" onClick={() => changeQuote("success")}>Motivation Quote</button>
-        <button className="refresh-button" onClick={()=>changeQuote("funny")}>Humor Quote</button>
-        <button className="refresh-button" onClick={()=>changeQuote("movie")}>Movies Quote</button>
+        <button className="refresh-button" onClick={() => changeQuote("motivation")}>Motivation Quote</button>
+        <button className="refresh-button" onClick={()=>changeQuote("humor")}>Humor Quote</button>
+        <button className="refresh-button" onClick={()=>changeQuote("movies")}>Movies Quote</button>
         <button className="refresh-button" onClick={()=>changeQuote("philosophy")}>Phisophy Quote</button>
         </div>
 
