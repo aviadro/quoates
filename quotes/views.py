@@ -17,7 +17,7 @@ CATEGORY_MAP = {
 def get_quotes(request, category):
     mapped_category = CATEGORY_MAP.get(category, "success")
     try:
-        response = requests.get(EXTERNAL_API_URL)
+        response = requests.get(EXTERNAL_API_URL, verify=False)
         
         if response.status_code == 200:
             data = response.json()

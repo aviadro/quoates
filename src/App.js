@@ -1,35 +1,28 @@
 import './App.css';
 import { useState } from 'react'
 import axios from 'axios'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes,Link } from 'react-router-dom'
+import Main from './components/Main';
+import About from './components/About';
 
 function App() {
-  const [quote, setQuote] = useState("The only limit to our realization of tomorrow is our doubts of today.")
-  const [author, setAuthor] = useState('Franklin D. Roosevelt')
 
-  function changeQuote(category){
-    axios
-      .get(
-        `http://127.0.0.1:8000/api/quotes/${category}/`
-      )
-      .then((response) => {
-        setQuote(response.data.text)
-        setAuthor(response.data.author)
-      })
-  }
 
   function toggleMenu() {
     document.querySelector(".nav-links").classList.toggle("active");
   }
     return (
     <>
+      <BrowserRouter>
      
       <nav className="navbar">
         <a href="#" className="logo">MyApp</a>
         <button className="menu-btn" onClick={toggleMenu}>☰</button>
         <ul className="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><Link to="/">
+                Home
+              </Link></li>
+          <li><Link to="/about">About</Link></li>
           <li><a href="#">Services</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
@@ -40,19 +33,14 @@ function App() {
           <h1>Welcome to MyApp</h1>
           <p>Your inspiring tagline goes here.</p>
         </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <button className="refresh-button" onClick={() => changeQuote("motivation")}>Motivation Quote</button>
-        <button className="refresh-button" onClick={()=>changeQuote("humor")}>Humor Quote</button>
-        <button className="refresh-button" onClick={()=>changeQuote("movies")}>Movies Quote</button>
-        <button className="refresh-button" onClick={()=>changeQuote("philosophy")}>Phisophy Quote</button>
-        </div>
+        <Routes>
 
-        {/* Quote Container */}
-        <div className="quote-container">
-          <blockquote>"{quote}"</blockquote>
-          <p className="author">- {author}</p>
-        </div>
+        <Route path="/" element={<Main />} />
+        <Route path="/about" element={<About />} />
+
+        </Routes>
       </div>
+      </BrowserRouter>
     </>
   );
 }
