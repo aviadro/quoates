@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react'
 import axios from 'axios'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [quote, setQuote] = useState("The only limit to our realization of tomorrow is our doubts of today.")
@@ -20,9 +21,9 @@ function App() {
   function toggleMenu() {
     document.querySelector(".nav-links").classList.toggle("active");
   }
-
     return (
     <>
+     
       <nav className="navbar">
         <a href="#" className="logo">MyApp</a>
         <button className="menu-btn" onClick={toggleMenu}>☰</button>
